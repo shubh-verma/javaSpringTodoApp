@@ -1,16 +1,16 @@
 package com.learn.todo;
 
+import jakarta.persistence.*;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
-import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "todo")
-public class Todo {
+class Todo {
     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
-    private Long userId;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer userId;
     @Column
     private String todoTitle;
     @Column
@@ -21,18 +21,18 @@ public class Todo {
 
     }
 
-    public Todo(Long userId, String todoTitle, Date dueDate, String taskStatus) {
+    public Todo(Integer userId, String todoTitle, Date dueDate, String taskStatus) {
         this.userId = userId;
         this.todoTitle = todoTitle;
         this.dueDate = dueDate;
         this.taskStatus = taskStatus;
     }
 
-    public Long getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
