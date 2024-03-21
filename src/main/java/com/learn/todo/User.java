@@ -3,7 +3,7 @@ package com.learn.todo;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "user")
+@Table(name = "CustomUser")
 public class User {
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
