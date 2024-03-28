@@ -5,44 +5,51 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "CustomUser")
 public class User {
-    @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
-    private Integer userId;
-    @Column
-    private String userName;
-    @Column
-    private String userPassword;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private Integer userId;
+  @Column
+  private String userName;
+  @Column
 
-    public User() {
-    }
+//    @JsonIgnore
+  private String userPassword;
 
-    public Integer getUserId() {
-        return userId;
-    }
+  public User() {
+  }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
+  public User(String userName, String userPassword, Integer userId) {
+    this.userName = userName;
+    this.userPassword = userPassword;
+    this.userId = userId;
+  }
 
-    public User(String userName, String userPassword, Integer userId) {
-        this.userName = userName;
-        this.userPassword = userPassword;
-        this.userId = userId;
-    }
+  public Integer getUserId() {
+    return userId;
+  }
 
-    public String getUserName() {
-        return userName;
-    }
+  public void setUserId(Integer userId) {
+    this.userId = userId;
+  }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
 
-    public String getUserPassword() {
-        return userPassword;
-    }
+//    BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(16);
+//    String result = encoder.encode("myPassword");
+//    assertTrue(encoder.matches("myPassword", result));
 
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
-    }
+  public String getUserName() {
+    return userName;
+  }
+
+  public void setUserName(String userName) {
+    this.userName = userName;
+  }
+
+  public String getUserPassword() {
+    return userPassword;
+  }
+
+  public void setUserPassword(String userPassword) {
+    this.userPassword = userPassword;
+  }
 }
